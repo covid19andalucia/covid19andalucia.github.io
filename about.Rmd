@@ -1,5 +1,8 @@
 ---
-title: "About This Website"
+title: "Participantes"
 ---
 
-More about this website.
+En esta página se presentan los resultados de realizar predicciones sobre el número de fallecidos y hospitalizados en la comunidad autónoma de Andalucía.
+
+Esta página ha sido realizada por Carlos Gomez Solaz, Aida Gomis Guardiola y Jorge Seguí Valero para la asignatura de Procesos estocásticos del Máster en Ciencias Actuariales y Financieras de la Universidad de Valencia.
+

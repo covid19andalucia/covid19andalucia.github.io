@@ -1,9 +1,19 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "My Website"
+  title: "COVID-19 Actuariales UV"
   left:
-    - text: "Home"
+    - text: "Predicciones fallecidos"
       href: index.html
-    - text: "About"
+    - text: "Predicciones hospitalizados"
+      href: hospitalizados.html
+    - text: "Metodología"
+      href: metodologia.html
+    - text: "Participantes"
       href: about.html
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    highlight: textmate

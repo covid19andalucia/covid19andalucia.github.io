@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Metodologia</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COVID-19 Actuariales UV</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Predicciones fallecidos</a>
+</li>
+<li>
+  <a href="hospitalizados.html">Predicciones hospitalizados</a>
+</li>
+<li>
+  <a href="metodologia.html">Metodología</a>
+</li>
+<li>
+  <a href="about.html">Participantes</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Metodologia</h1>
+
+</div>
+
+
+<div id="metodología-común" class="section level2">
+<h2>Metodología común</h2>
+<div id="representación-gráfica-de-los-datos" class="section level3">
+<h3>Representación gráfica de los datos</h3>
+<p><img src="metodologia_files/figure-html/representacion%20datos-1.png" width="672" /><img src="metodologia_files/figure-html/representacion%20datos-2.png" width="672" /></p>
+<p>Representamos los dos gráficos de datos con los csv obtenidos a partir de la base de datos datadista que se actualizan automáticamente cada mañana con la nueva información del Gobierno.</p>
+<p>Los datos no son estacionarios, lo que en sentido estricto supone que la distribución de probabilidad es constante para todos los momentos del tiempo. Nosotros buscamos que los procesos sean estacionarios en sentido debil, lo que requiere que el primer y segundo momento se mantengan constantes.</p>
+<p>En el gráfico se puede ver una tendencia creciente marcada que no pasa por la media mas que una vez.</p>
+<p>Respecto del registro de los datos, en el caso de los hospitalizados en la UCI los datos comienzan el 10 de marzo mientras que los fallecidos comienzan el 3 de marzo.</p>
+<p><img src="metodologia_files/figure-html/qq%20plots-1.png" width="672" /></p>
+<p>Podemos observar que los datos de las series temporales no se distribuyen como una normal ya que las observaciones no se ajustan a la recta de 45º.</p>
+</div>
+<div id="transformación-previa-de-la-serie-y-eliminación-de-la-tendencia." class="section level3">
+<h3>Transformación previa de la serie y eliminación de la tendencia.</h3>
+<p>En las dos series aplicamos logaritmos para hacerlas estacionarias en varianza. Además, aplicamos diferencias para que las series se vuelvan estacionarias en la media. En nuestro caso estos procesos son integrados de orden 1, por lo que únicamente se aplican diferencias una vez.</p>
+<p><img src="metodologia_files/figure-html/grafico%20diferencias-1.png" width="672" /></p>
+<p>Una vez aplicamos logaritmos se puede observar que la serie empieza a oscilar alrededor de la media pero aun presenta cierta consistencia.</p>
+</div>
+<div id="identificación-del-modelo" class="section level3">
+<h3>Identificación del modelo</h3>
+<p>Empezaremos analizando los correlogramas de las series en primeras diferencias. Con esto se representan las correlaciones simples y parciales de cada una de las series.</p>
+<p>Una vez transformada la serie en estacionaria, se determinará el orden de la parte autorregresiva (p) y el de la parte de media móvil (q) del proceso ARMA que se considere que haya podido generar la serie estacionaria. Para tal fin utilizaremos la representación gráfica de las funciones de autocorrelación simple y parcial de la serie transformada para que nos ofrezca una orientación para la formulación del modelo orientativo.</p>
+<p><img src="metodologia_files/figure-html/correlaciones%20sobre%20diferencias-1.png" width="672" /><img src="metodologia_files/figure-html/correlaciones%20sobre%20diferencias-2.png" width="672" /></p>
+<p>En el caso de los ingresados en la UCI, R nos aconseja mediante la función auto.arima un modelo ARIMA (0,1,3).</p>
+<p>En primer lugar, basándonos en los correlogramas de la función de autocorrelacion y autocorrelacion parcial observando los gráficos podríamos decir que se trata de una AR(1) y una MA(3) y para convertirla en estacionaria añadimos una diferenciación. Hablariamos de un ARIMA (1,1,3).</p>
+<p>Por ello los primeros modelos a aplicar han sido un ARIMA (1,1,3), ARIMA (1,1,0) y ARIMA (1,1,1).</p>
+<p>En el caso de los fallecidos, la función auto.arima recomienda un modelo ARIMA (2,1,0). Sin embargo, se han analizado adicionalmente los modelos (2,1,1), (1,1,2), (2,1,2) y (2,2,0) tanto en primeras como en segundas diferencias.</p>
+</div>
+<div id="fase-de-estimación" class="section level3">
+<h3>Fase de estimación</h3>
+<p>Una vez identificado el modelo que se considera apropiado, se procede a la estimación definitiva de sus parámetros. En este punto, no debemos olvidar que si hemos tomado d diferencias en la serie se perderán observaciones.</p>
+</div>
+<div id="fase-de-validación" class="section level3">
+<h3>Fase de validación</h3>
+<p>En esta etapa se comprobarán las capacidades de ajuste de los modelos propuestos. En caso de que los modelos no superen satisfactoriamente este paso, será necesario probar con otros modelos. Para la aceptación del modelo, éste debe cumplir los siguientes requisitos:</p>
+<p><strong>Análisis de la bondad de ajuste.</strong></p>
+<p>Generalmente en este aspecto se suele utilizar el coeficiente de determinación, si bien los coeficientes de determinación de diferentes modelos univariantes sólo son comparables en aquellos modelos en los que se hayan tomado idéntico número de diferencias, debido a que para que éste sea un elemento de comparación directa, la varianza de la variable debe ser la misma.</p>
+<p>Para paliar este inconveniente, se ha utilizado el estadístico loglik. Siguiendo este criterio, se seleccionará aquel modelo para el que se obtenga un <strong>loglik</strong> más alto. No se obtendría información sobre si un modelo es bueno o no, únicamente solo permite la comparación entre modelos.</p>
+<p>En primer lugar observamos los resultados para los <strong>hospitalizados en UCI</strong>. Obtenemos unos resultados muy próximos entre los tres modelos utilizados dándonos mejor ajuste de bondad utilizando el modelo loglik con ARIMA (1,1,3), (1,1,0) y (1,1,1), cuyos resultados se muestran respectivamente (coeficientes y valor loglik).</p>
+<pre><code>##         ar1         ma1         ma2         ma3 
+##  0.92076073 -0.50139313 -0.28991845  0.06502472</code></pre>
+<pre><code>## [1] 89.97102</code></pre>
+<pre><code>##       ar1 
+## 0.8880271</code></pre>
+<pre><code>## [1] 84.41333</code></pre>
+<pre><code>##        ar1        ma1 
+##  0.9216753 -0.6688116</code></pre>
+<pre><code>## [1] 88.86141</code></pre>
+<p>Hemos utilizado también las predicciones que nos aporta cada modelo comparándolas con las observaciones que vamos obteniendo cada día y actualizando el modelo con las observaciones vigentes. Se ha realizado este procedimiento desde el día 13/04/2020 hasta la actualidad, donde hemos podido observar que se ajusta mejor el ARIMA (1,1,3) dando predicciones de error próximas al cero por ciento.</p>
+<p>Respecto de los <strong>fallecidos</strong>, obtenemos que los resultados con todos los modelos estudiados son muy similares, ya que los valores <strong>loglik</strong> para todos los modelos utilizados ha sido muy similar, por lo que la alternativa más adecuada ha sido elegir el modelo según la forma de la curva que proyectaba más que por estrictamente el valor loglik más alto de los modelos (2,2,0), (2,1,1), (1,1,2) y (2,1,2) respectivamente.</p>
+<pre><code>## [1] -240.2817</code></pre>
+<pre><code>## [1] -243.9584</code></pre>
+<pre><code>## [1] -260.7423</code></pre>
+<pre><code>## [1] -243.5542</code></pre>
+<p><strong>Análisis de los residuos.</strong> Como sabemos, una de las hipótesis de los modelos univariantes es que el término de error del modelo es ruido blanco. Por ello, los residuos obtenidos tras la estimación del modelo deben seguir un proceso puramente aleatorio con distribución Normal, ya que, de lo contrario, contendrían información relevante para la predicción que se estaría despreciando.</p>
+<p>Importante graficar los residuos después de hacer el ajuste para ver si tienen algún tipo de estructura, si se percibe una serie o estructura hay algo que no estamos captando en el modelo. En este caso se puede observar en el gráfico no siguen una estructura o serie por lo que podemos verificar un comportamiento no sistemático de los mismos. Al mismo tiempo no existen errores significativos.</p>
+<p>Respecto de los <strong>hospitalizdos en la UCI</strong> presentamos el correlograma del ARIMA (1,3,0) finalmente elegido. En este correlograma se entiende que el modelo es correcto si los residuos se pueden considerar ruido blanco.</p>
+<p><img src="metodologia_files/figure-html/Residuos%20Arimah%201-1.png" width="672" /></p>
+<p>Utilizamos la prueba Jarque-Bera, se trata de una prueba de bondad de ajuste para comprobar si los residuos tienen la asimetría y la curtosis de una normal. Ya que en el gráfico no se puede apreciar claramente que sigue una normal.</p>
+<pre><code>## 
+##  Jarque Bera Test
+## 
+## data:  ARIMAH1$residuals
+## X-squared = 153.15, df = 2, p-value &lt; 2.2e-16</code></pre>
+<p><img src="metodologia_files/figure-html/Jarque-bera-1.png" width="672" /></p>
+<p>Se utiliza una significación del 10% por lo tanto se considera que la hipótesis nula, que muestra que la simetría es nula y curtosis = 3, entonces probamos la hipótesis de normalidad de los residuos.</p>
+<p>Por ello utilizamos el modelo seleccionado ARIMA (1,1,3) como fórmula inicial de predicción.</p>
+<p>Respecto de los <strong>fallecidos</strong>:</p>
+<p><img src="metodologia_files/figure-html/Residuos%20Arima%201-1.png" width="672" /> Por último, aquí se encuentran los residuos del modelo elegido (1,1,2), con mejor predicción.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

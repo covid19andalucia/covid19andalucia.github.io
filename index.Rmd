@@ -1,5 +1,450 @@
 ---
-title: "My Website"
+title: "Predicciones de fallecidos en Andalucía"
 ---
 
-Hello, Website!
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Presentación de datos
+
+Aquí se presentan los datos de fallecimientos de la Comunidad Autónoma de Andalucía.
+
+```{r librerias, include=FALSE}
+library(car)
+library(reshape)
+library(readxl)
+library(ggplot2)
+library(ggfortify)
+library(forecast)
+library(openxlsx)
+library(kableExtra)
+```
+En este gráfico a continuación se presentan los datos de fallecidos a día de hoy en Andalucía. En el eje de las coordenadas podemos ver el número de días que han pasado desde que se comenzó el registro (5 de marzo). Estos datos se actualizan cada mañana a partir de los datos publicados por el Gobierno.
+
+```{r datoscsv, echo=FALSE, message=FALSE, warning=FALSE}
+#Generación de datos de los fallecidos sin transponer nada y generación de autoplot
+deaths_ccaa<-read.table("https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos.csv", sep=",", skip=1, nrows = 1)
+deaths_ccaa[,1:2]<-NULL
+deaths_ccaa_comp<-melt(deaths_ccaa)
+deaths_ccaa_comp[,1]<-NULL
+datos<-as.ts(deaths_ccaa_comp)
+autoplot(datos)
+```
+
+
+## Datos concretos de fallecidos
+Estos son los mismos datos del principio pero un poco mejores visualmente, con el inconveniente de que no se actualizan cada dia a las 11:30 de la mañana y requieren una transposición a excel.
+
+```{r datosxlsx, echo=FALSE}
+#Predicciones de ese mismo día
+datos_fallecidos<-read.xlsx("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx",sheet = 1, startRow = 1, colNames = TRUE, detectDates = TRUE)
+#Creamos el ggplot
+#datosfallecidos<-data.frame(fechas,datos)
+ggplot(datos_fallecidos, aes(x=Fecha, y=Fallecidos))+
+  geom_line(linetype= 2, color="blue")+
+  geom_point(color="red")+
+  scale_x_date(date_breaks = "7 days")+
+  ggtitle("Número de fallecidos en Andalucía")+
+  xlab(" ")+
+  ylab("Fallecidos")+
+  theme_classic()
+```
+
+## Predicciones y errores
+
+### 6 al 10 de abril
+
+
+```{r pred_fall_6_10, echo=FALSE, warning=FALSE}
+fallecidos6_10 <- read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx", col_types = c("date","numeric","numeric","numeric","numeric","numeric","numeric"), sheet = 2)
+fallecidos6_10$Fecha<-as.Date(fallecidos6_10$Fecha)
+
+#Primer grafico: Añade los fallecidos
+graf_P_6_10_1<-ggplot(fallecidos6_10, aes(x=Fecha))+geom_line(aes(y=Fallecidos, colour="Fallecidos"), size=2)+geom_point(aes(y=Fallecidos, colour="Fallecidos"),size=1, shape=21)
+#Gráficos 2 a 11: Añaden las predicciones
+
+graf_P_6_10_2<-graf_P_6_10_1+geom_line(aes(y=P410,colour="Predicción con datos desde el 11-4 hasta el 30-4"))+geom_point(aes(y=P410,colour="Predicción con datos desde el 11-4 hasta el 30-4"),size=2, shape=21)
+
+graf_P_6_10_3<-graf_P_6_10_2+geom_line(aes(y=P49,colour="Predicción con datos desde el 10-4 hasta el 29-4"))+geom_point(aes(y=P49,colour="Predicción con datos desde el 10-4 hasta el 29-4"),size=2, shape=21)
+
+graf_P_6_10_4<-graf_P_6_10_3+geom_line(aes(y=P48,colour="Predicción con datos desde el 9-4 hasta el 28-4"))+geom_point(aes(y=P48,colour="Predicción con datos desde el 9-4 hasta el 28-4"),size=2, shape=21)
+
+graf_P_6_10_5<-graf_P_6_10_4+geom_line(aes(y=P47,colour="Predicción con datos desde el 8-4 hasta el 27-4"))+geom_point(aes(y=P47,colour="Predicción con datos desde el 8-4 hasta el 27-4"),size=2, shape=21)
+
+graf_P_6_10_6<-graf_P_6_10_5+geom_line(aes(y=P46,colour="Predicción con datos desde el 7-4 hasta el 26-4"))+geom_point(aes(y=P46,colour="Predicción con datos desde el 7-4 hasta el 26-4"),size=2, shape=21)
+
+
+#Grafico 12: Agregar la escala de las fechas
+
+graf_P_6_10_7<-graf_P_6_10_6+scale_x_date(date_breaks = "6 days",date_labels = "%d-%m")
+
+#Grafico 13: Agregar el tema y el título del gráfico
+
+graf_P_6_10_8<-graf_P_6_10_7+theme_gray()+ggtitle("Predicciones de fallecimientos en Andalucía del 6 al 10 de abril")
+
+#Gráfico 14: 
+
+graf_P_6_10_9<-graf_P_6_10_8+scale_colour_hue(h=c(0,360)+15)
+
+#Modificar posicion de la leyenda
+graf_P_6_10_10<-graf_P_6_10_9+theme(legend.position = c(0.25,0.8))+theme(legend.background=element_rect(fill="lightcyan2",size=0.5,linetype="solid"))+scale_fill_discrete(name = "Días")
+
+#Agregar la escala de la y
+graf_P_6_10_11<-graf_P_6_10_10+scale_y_continuous(limit=c(0,2000))
+
+#Representación del gráfico
+graf_P_6_10_11
+```
+
+Error de las predicciones realizadas entre el 6 y 10 de abril. En verde se puede observar que la prediccion realizada el 6 de abril es mejor que las otras a medio plazo y esta realizando predicciones más acertadas que el resto. Se puede ver que pese haber un porcentaje alto a la semana de comenzar las predicciones, el error a partir de ese momento empieza a bajar a valores inferiores al 1% pese a ser a tan largo plazo. 
+
+```{r error_fall_6_10, echo=FALSE, warning=FALSE}
+error_6_10<-
+read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Error predicciones fallecidos Andalucia.xlsx", 
+col_types = c("date","numeric","numeric","numeric","numeric","numeric"), 
+col_names = c("Fecha","6 Abril","7 Abril","8 Abril", "9 Abril", "10 Abril"), sheet = 1)
+options(knitr.kable.NA="")
+error_6_10_1<-kable(
+  error_6_10,format='html', 
+  caption="Error diario en las predicciones realizadas entre el 6 y 10 de abril",
+  align='c',
+  digits = 5,
+  padding = 0,
+)
+error_6_10_2<-kable_styling(error_6_10_1, 
+                            bootstrap_options = "hover",
+                            )
+column_spec(error_6_10_2, 2, color="green")
+```
+
+### 11 al 15 de abril
+Gráfico de las predicciones del 11 al 15 de abril
+
+```{r pred_fall_11_15, echo=FALSE, warning=FALSE}
+fallecidos11_15 <- read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx", col_types = c("date","numeric","numeric","numeric","numeric","numeric","numeric"), sheet = 3)
+fallecidos11_15$Fecha<-as.Date(fallecidos11_15$Fecha)
+
+#Primer grafico: Añade los fallecidos
+graf_P_11_15_1<-ggplot(fallecidos11_15, aes(x=Fecha))+geom_line(aes(y=Fallecidos, colour="Fallecidos"), size=2)+geom_point(aes(y=Fallecidos, colour="Fallecidos"),size=1, shape=21)
+
+#Gráficos 2 a 11: Añaden las predicciones
+
+graf_P_11_15_2<-graf_P_11_15_1+geom_line(aes(y=P415,colour="Predicción con datos desde el 16-4 hasta el 5-5"))+geom_point(aes(y=P415,colour="Predicción con datos desde el 16-4 hasta el 5-5"),size=2, shape=21)
+
+graf_P_11_15_3<-graf_P_11_15_2+geom_line(aes(y=P414,colour="Predicción con datos desde el 15-4 hasta el 4-5"))+geom_point(aes(y=P414,colour="Predicción con datos desde el 15-4 hasta el 4-5"),size=2, shape=21)
+
+graf_P_11_15_4<-graf_P_11_15_3+geom_line(aes(y=P413,colour="Predicción con datos desde el 14-4 hasta el 3-5"))+geom_point(aes(y=P413,colour="Predicción con datos desde el 14-4 hasta el 3-5"),size=2, shape=21)
+
+graf_P_11_15_5<-graf_P_11_15_4+geom_line(aes(y=P412,colour="Predicción con datos desde el 13-4 hasta el 2-5"))+geom_point(aes(y=P412,colour="Predicción con datos desde el 13-4 hasta el 2-5"),size=2, shape=21)
+
+graf_P_11_15_6<-graf_P_11_15_5+geom_line(aes(y=P411,colour="Predicción con datos desde el 12-4 hasta el 1-5"))+geom_point(aes(y=P411,colour="Predicción con datos desde el 12-4 hasta el 1-5"),size=2, shape=21)
+
+#Grafico 12: Agregar la escala de las fechas
+
+graf_P_11_15_7<-graf_P_11_15_6+scale_x_date(date_breaks = "6 days",date_labels = "%d-%m")
+
+#Grafico 13: Agregar el tema y el título del gráfico
+
+graf_P_11_15_8<-graf_P_11_15_7+theme_gray()+ggtitle("Predicciones de fallecimientos en Andalucía del 11 al 15 de abril")
+
+#Gráfico 14:
+
+graf_P_11_15_9<-graf_P_11_15_8+scale_colour_hue(h=c(0,360)+15)
+
+#Modificar posicion de la leyenda
+graf_P_11_15_10<-graf_P_11_15_9+theme(legend.position = c(0.25,0.8))+theme(legend.background=element_rect(fill="lightcyan2",size=0.5,linetype="solid"))+scale_fill_discrete(name = "Días")
+
+
+#Agregar la escala de la y
+graf_P_11_15_11<-graf_P_11_15_10+scale_y_continuous(limit=c(0,2000))
+
+#Representación del gráfico
+graf_P_11_15_11
+
+```
+
+```{r error_fall_11_15, echo=FALSE, warning=FALSE}
+error_11_15<-
+read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Error predicciones fallecidos Andalucia.xlsx", 
+col_types = c("date","numeric","numeric","numeric","numeric","numeric"), 
+col_names = c("Fecha","11 Abril","12 Abril","13 Abril", "14 Abril", "15 Abril"), sheet = 2)
+options(knitr.kable.NA="")
+error_11_15_1<-kable(
+  error_11_15,format='html', 
+  caption="Error diario en las predicciones realizadas entre el 11 y 15 de abril",
+  align='c',
+  digits = 5,
+  padding = 0,
+)
+kable_styling(error_11_15_1, 
+bootstrap_options = "hover",
+)
+```
+
+
+### 16 al 20 de abril
+
+
+```{r fall_pred_16_20, echo=FALSE, warning=FALSE}
+fallecidos16_20 <- read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx", col_types = c("date","numeric","numeric","numeric","numeric","numeric","numeric"), sheet = 4)
+fallecidos16_20$Fecha<-as.Date(fallecidos16_20$Fecha)
+
+#Primer grafico: Añade los fallecidos
+graf_P_16_20_1<-ggplot(fallecidos16_20, aes(x=Fecha))+geom_line(aes(y=Fallecidos, colour="Fallecidos"), size=2)+geom_point(aes(y=Fallecidos, colour="Fallecidos"),size=1, shape=21)
+
+#Gráficos 2 a 11: Añaden las predicciones
+
+graf_P_16_20_2<-graf_P_16_20_1+geom_line(aes(y=P420,colour="Predicción con datos desde el 21-4 hasta el 10-5"))+geom_point(aes(y=P420,colour="Predicción con datos desde el 21-4 hasta el 10-5"),size=2, shape=21)
+
+graf_P_16_20_3<-graf_P_16_20_2+geom_line(aes(y=P419,colour="Predicción con datos desde el 20-4 hasta el 9-5"))+geom_point(aes(y=P419,colour="Predicción con datos desde el 20-4 hasta el 9-5"),size=2, shape=21)
+
+graf_P_16_20_4<-graf_P_16_20_3+geom_line(aes(y=P418,colour="Predicción con datos desde el 19-4 hasta el 8-5"))+geom_point(aes(y=P418,colour="Predicción con datos desde el 19-4 hasta el 8-5"),size=2, shape=21)
+
+graf_P_16_20_5<-graf_P_16_20_4+geom_line(aes(y=P417,colour="Predicción con datos desde el 18-4 hasta el 7-5"))+geom_point(aes(y=P417,colour="Predicción con datos desde el 18-4 hasta el 7-5"),size=2, shape=21)
+
+graf_P_16_20_6<-graf_P_16_20_5+geom_line(aes(y=P416,colour="Predicción con datos desde el 17-4 hasta el 6-5"))+geom_point(aes(y=P416,colour="Predicción con datos desde el 17-4 hasta el 6-5"),size=2, shape=21)
+
+
+#Grafico 12: Agregar la escala de las fechas
+
+graf_P_16_20_7<-graf_P_16_20_6+scale_x_date(date_breaks = "6 days",date_labels = "%d-%m")
+
+#Grafico 13: Agregar el tema y el título del gráfico
+
+graf_P_16_20_8<-graf_P_16_20_7+theme_gray()+ggtitle("Predicciones de fallecimientos en Andalucía del 16 al 20 de abril")
+
+#Gráfico 14:
+
+graf_P_16_20_9<-graf_P_16_20_8+scale_colour_hue(h=c(0,360)+15)
+
+#Modificar posicion de la leyenda
+graf_P_16_20_10<-graf_P_16_20_9+theme(legend.position = c(0.25,0.8))+theme(legend.background=element_rect(fill="lightcyan2",size=0.5,linetype="solid"))+scale_fill_discrete(name = "Días")
+
+#Agregar la escala de la y
+graf_P_16_20_11<-graf_P_16_20_10+scale_y_continuous(limit=c(0,2000))
+
+#Representación del gráfico
+graf_P_16_20_11
+
+```
+
+
+
+```{r error_fall_16_20, echo=FALSE, warning=FALSE}
+error_16_20<-
+read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Error predicciones fallecidos Andalucia.xlsx", 
+col_types = c("date","numeric","numeric","numeric","numeric","numeric"), 
+col_names = c("Fecha","16 Abril","17 Abril","18 Abril", "19 Abril", "20 Abril"), sheet = 3)
+options(knitr.kable.NA="")
+error_16_20_1<-kable(
+  error_16_20,format='html', 
+  caption="Error diario en las predicciones realizadas entre el 16 y 20 de abril",
+  align='c',
+  digits = 5,
+  padding = 0,
+)
+kable_styling(error_16_20_1, 
+bootstrap_options = "hover",
+)
+```
+
+### 21 al 25 de abril
+
+
+```{r fall_pred_21_25, echo=FALSE, warning=FALSE}
+fallecidos21_25 <- read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx", col_types = c("date","numeric","numeric","numeric","numeric","numeric","numeric"), sheet = 5)
+fallecidos21_25$Fecha<-as.Date(fallecidos21_25$Fecha)
+
+#Primer grafico: Añade los fallecidos
+graf_P_21_25_1<-ggplot(fallecidos21_25, aes(x=Fecha))+geom_line(aes(y=Fallecidos, colour="Fallecidos"), size=2)+geom_point(aes(y=Fallecidos, colour="Fallecidos"),size=1, shape=21)
+
+#Gráficos 2 a 11: Añaden las predicciones
+
+graf_P_21_25_2<-graf_P_21_25_1+geom_line(aes(y=P425,colour="Predicción con datos desde el 26-4 hasta el 15-5"))+geom_point(aes(y=P425,colour="Predicción con datos desde el 26-4 hasta el 15-5"),size=2, shape=21)
+
+graf_P_21_25_3<-graf_P_21_25_2+geom_line(aes(y=P424,colour="Predicción con datos desde el 25-4 hasta el 14-5"))+geom_point(aes(y=P424,colour="Predicción con datos desde el 25-4 hasta el 14-5"),size=2, shape=21)
+
+graf_P_21_25_4<-graf_P_21_25_3+geom_line(aes(y=P423,colour="Predicción con datos desdeel 24-4 hasta el 13-5"))+geom_point(aes(y=P423,colour="Predicción con datos desde el 24-4 hasta el 13-5"),size=2, shape=21)
+
+graf_P_21_25_5<-graf_P_21_25_4+geom_line(aes(y=P422,colour="Predicción con datos desde el 23-4 hasta el 12-5"))+geom_point(aes(y=P422,colour="Predicción con datos desde el 23-4 hasta el 12-5"),size=2, shape=21)
+
+graf_P_21_25_6<-graf_P_21_25_5+geom_line(aes(y=P421,colour="Predicción con datos desde el 22-4 hasta el 11-5"))+geom_point(aes(y=P421,colour="Predicción con datos desde el 22-4 hasta el 11-5"),size=2, shape=21)
+
+
+#Grafico 12: Agregar la escala de las fechas
+
+graf_P_21_25_7<-graf_P_21_25_6+scale_x_date(date_breaks = "6 days",date_labels = "%d-%m")
+
+#Grafico 13: Agregar el tema y el título del gráfico
+
+graf_P_21_25_8<-graf_P_21_25_7+theme_gray()+ggtitle("Predicciones de fallecimientos en Andalucía del 21 al 25 de abril")
+
+#Gráfico 14:
+
+graf_P_21_25_9<-graf_P_21_25_8+scale_colour_hue(h=c(0,360)+15)
+
+#Modificar posicion de la leyenda
+graf_P_21_25_10<-graf_P_21_25_9+theme(legend.position = c(0.25,0.8))+theme(legend.background=element_rect(fill="lightcyan2",size=0.5,linetype="solid"))+scale_fill_discrete(name = "Días")
+
+#Agregar la escala de la y
+graf_P_21_25_11<-graf_P_21_25_10+scale_y_continuous(limit=c(0,2000))
+
+#Representación del gráfico
+graf_P_21_25_11
+```
+
+
+
+```{r error_fall_21_25, echo=FALSE, warning=FALSE}
+error_21_25<-
+read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Error predicciones fallecidos Andalucia.xlsx", 
+col_types = c("date","numeric","numeric","numeric","numeric","numeric"), 
+col_names = c("Fecha","21 Abril","22 Abril","23 Abril", "24 Abril", "25 Abril"), sheet = 4)
+options(knitr.kable.NA="")
+error_21_25_1<-kable(
+  error_21_25,format='html', 
+  caption="Error diario en las predicciones realizadas entre el 21 y 25 de abril",
+  align='c',
+  digits = 5,
+  padding = 0,
+)
+kable_styling(error_21_25_1, 
+bootstrap_options = "hover",
+)
+```
+
+### 26 a 30 de abril
+
+
+```{r fall_pred_26_30, echo=FALSE, warning=FALSE}
+fallecidos26_30 <- read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx", col_types = c("date","numeric","numeric","numeric","numeric","numeric","numeric"), sheet = 6)
+fallecidos26_30$Fecha<-as.Date(fallecidos26_30$Fecha)
+
+#Primer grafico: Añade los fallecidos
+graf_P_26_30_1<-ggplot(fallecidos26_30, aes(x=Fecha))+geom_line(aes(y=Fallecidos, colour="Fallecidos"), size=2)+geom_point(aes(y=Fallecidos, colour="Fallecidos"),size=1, shape=21)
+
+#Gráficos 2 a 11: Añaden las predicciones
+
+graf_P_26_30_2<-graf_P_26_30_1+geom_line(aes(y=P430,colour="Predicción con datos desde el 1-5 hasta el 20-5"))+geom_point(aes(y=P430,colour="Predicción con datos desde el 1-5 hasta el 20-5"),size=2, shape=21)
+
+graf_P_26_30_3<-graf_P_26_30_2+geom_line(aes(y=P429,colour="Predicción con datos desde el 30-4 hasta el 19-5"))+geom_point(aes(y=P429,colour="Predicción con datos desde el 30-4 hasta el 19-5"),size=2, shape=21)
+
+graf_P_26_30_4<-graf_P_26_30_3+geom_line(aes(y=P428,colour="Predicción con datos desdeel 29-4 hasta el 18-5"))+geom_point(aes(y=P428,colour="Predicción con datos desde el 29-4 hasta el 18-5"),size=2, shape=21)
+
+graf_P_26_30_5<-graf_P_26_30_4+geom_line(aes(y=P427,colour="Predicción con datos desde el 28-4 hasta el 17-5"))+geom_point(aes(y=P427,colour="Predicción con datos desde el 28-4 hasta el 17-5"),size=2, shape=21)
+
+graf_P_26_30_6<-graf_P_26_30_5+geom_line(aes(y=P426,colour="Predicción con datos desde el 27-4 hasta el 16-5"))+geom_point(aes(y=P426,colour="Predicción con datos desde el 27-4 hasta el 16-5"),size=2, shape=21)
+
+
+#Grafico 12: Agregar la escala de las fechas
+
+graf_P_26_30_7<-graf_P_26_30_6+scale_x_date(date_breaks = "6 days",date_labels = "%d-%m")
+
+#Grafico 13: Agregar el tema y el título del gráfico
+
+graf_P_26_30_8<-graf_P_26_30_7+theme_gray()+ggtitle("Predicciones de fallecimientos en Andalucía del 26 al 30 de abril")
+
+#Gráfico 14:
+
+graf_P_26_30_9<-graf_P_26_30_8+scale_colour_hue(h=c(0,360)+15)
+
+#Modificar posicion de la leyenda
+graf_P_26_30_10<-graf_P_26_30_9+theme(legend.position = c(0.25,0.8))+theme(legend.background=element_rect(fill="lightcyan2",size=0.5,linetype="solid"))+scale_fill_discrete(name = "Días")
+
+#Agregar la escala de la y
+graf_P_26_30_11<-graf_P_26_30_10+scale_y_continuous(limit=c(0,2000))
+
+#Representación del gráfico
+graf_P_26_30_11
+```
+
+
+
+```{r error_fall_26_30, echo=FALSE, warning=FALSE}
+error_26_30<-
+read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Error predicciones fallecidos Andalucia.xlsx", 
+col_types = c("date","numeric","numeric","numeric","numeric","numeric"), 
+col_names = c("Fecha","26 Abril","27 Abril","28 Abril", "29 Abril", "30 Abril"), sheet = 5)
+options(knitr.kable.NA="")
+error_26_30_1<-kable(
+  error_26_30,format='html', 
+  caption="Error diario en las predicciones realizadas entre el 26 y 30 de abril",
+  align='c',
+  digits = 5,
+  padding = 0,
+)
+kable_styling(error_26_30_1, 
+bootstrap_options = "hover",
+)
+```
+### 1 al 3 de mayo
+
+
+```{r fall_pred_01_03, echo=FALSE, warning=FALSE}
+fallecidos01_03 <- read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Predicciones fallecidos Andalucia.xlsx", col_types = c("date","numeric","numeric","numeric","numeric"), sheet = 7)
+fallecidos01_03$Fecha<-as.Date(fallecidos01_03$Fecha)
+
+#Primer grafico: Añade los fallecidos
+graf_P_01_03_1<-ggplot(fallecidos01_03, aes(x=Fecha))+geom_line(aes(y=Fallecidos, colour="Fallecidos"), size=2)+geom_point(aes(y=Fallecidos, colour="Fallecidos"),size=1, shape=21)
+
+#Gráficos 2 a 11: Añaden las predicciones (en esta predicción hay menos porque solo hay 3 días)
+
+graf_P_01_03_2<-graf_P_01_03_1+geom_line(aes(y=P503,colour="Predicción con datos desde el 4-5 hasta el 23-5"))+geom_point(aes(y=P503,colour="Predicción con datos desde el 4-5 hasta el 23-5"),size=2, shape=21)
+
+graf_P_01_03_3<-graf_P_01_03_2+geom_line(aes(y=P502,colour="Predicción con datos desde el 3-5 hasta el 22-5"))+geom_point(aes(y=P502,colour="Predicción con datos desde el 3-5 hasta el 22-5"),size=2, shape=21)
+
+graf_P_01_03_4<-graf_P_01_03_3+geom_line(aes(y=P501,colour="Predicción con datos desdeel 2-5 hasta el 21-5"))+geom_point(aes(y=P501,colour="Predicción con datos desde el 2-5 hasta el 21-5"),size=2, shape=21)
+
+
+#Grafico 12: Agregar la escala de las fechas
+
+graf_P_01_03_5<-graf_P_01_03_4+scale_x_date(date_breaks = "6 days",date_labels = "%d-%m")
+
+#Grafico 13: Agregar el tema y el título del gráfico
+
+graf_P_01_03_6<-graf_P_01_03_5+theme_gray()+ggtitle("Predicciones de fallecimientos en Andalucía del 1 al 3 de mayo")
+
+#Gráfico 14:
+
+graf_P_01_03_7<-graf_P_01_03_6+scale_colour_hue(h=c(0,360)+15)
+
+#Modificar posicion de la leyenda
+graf_P_01_03_8<-graf_P_01_03_7+theme(legend.position = c(0.25,0.8))+theme(legend.background=element_rect(fill="lightcyan2",size=0.5,linetype="solid"))+scale_fill_discrete(name = "Días")
+
+#Agregar la escala de la y
+graf_P_01_03_9<-graf_P_01_03_8+scale_y_continuous(limit=c(0,2000))
+
+#Representación del gráfico
+graf_P_01_03_9
+
+```
+
+
+
+```{r error_fall_01_03, echo=FALSE, warning=FALSE}
+error_01_03<-
+read_excel("C:/Users/Usuario/Desktop/Jorge universidad/Procesos estocásticos/Covid 19/Error predicciones fallecidos Andalucia.xlsx", 
+col_types = c("date","numeric","numeric","numeric"), 
+col_names = c("Fecha","1 Mayo","2 Mayo","3 Mayo"), sheet = 6)
+options(knitr.kable.NA="")
+error_01_03_1<-kable(
+  error_01_03,format='html', 
+  caption="Error diario en las predicciones realizadas entre el 1 y el 3 de mayo",
+  align='c',
+  digits = 5,
+  padding = 0,
+)
+kable_styling(error_01_03_1, 
+bootstrap_options = "hover",
+)
+```
+
+
+## Conclusiones de los datos
+
+Estos datos tratan fallecimientos acumulados, por lo que conforme avanza el tiempo y van disminuyendo para tender a una linea horizontal, que supondrá el fin de los fallecidos.
+
+En los gráficos separados por tramos de dias se puede observar que la curva se va aplanando y que las predicciones van convergiendo hacia esa horizontalidad mencionada.
+
+

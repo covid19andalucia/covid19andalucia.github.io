@@ -11,7 +11,7 @@
 
 
 
-<title>Predicciones de fallecidos en Andalucía</title>
+<title>Predicciones de internados en la UCI en Andalucía</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -372,28 +372,27 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Predicciones de fallecidos en Andalucía</h1>
+<h1 class="title toc-ignore">Predicciones de internados en la UCI en Andalucía</h1>
 
 </div>
 
 
 <div id="presentación-de-datos" class="section level2">
 <h2>Presentación de datos</h2>
-<p>Aquí se presentan los datos de fallecimientos de la Comunidad Autónoma de Andalucía.</p>
-<p>En este gráfico a continuación se presentan los datos de fallecidos a día de hoy en Andalucía. En el eje de las coordenadas podemos ver el número de días que han pasado desde que se comenzó el registro (5 de marzo). Estos datos se actualizan cada mañana a partir de los datos publicados por el Gobierno.</p>
-<p><img src="index_files/figure-html/datoscsv-1.png" width="672" /></p>
+<p>Aquí se presentan los datos de hospitalizados en las Unidades de Cuidados Intensivos de la comunidad autónoma de Andalucía.</p>
+<p>En este gráfico a continuación se presentan los datos de hospitalizados en la UCI a día de hoy en Andalucía. En el eje de las coordenadas podemos ver el número de días que han pasado desde que se comenzó el registro (21 de marzo). Estos datos se actualizan cada mañana a partir de los datos publicados por el Gobierno.</p>
+<p><img src="hospitalizados_files/figure-html/datoscsv-1.png" width="672" /></p>
 </div>
-<div id="datos-concretos-de-fallecidos" class="section level2">
-<h2>Datos concretos de fallecidos</h2>
+<div id="datos-concretos-de-hospitalizados" class="section level2">
+<h2>Datos concretos de hospitalizados</h2>
 <p>Estos son los mismos datos del principio pero un poco mejores visualmente, con el inconveniente de que no se actualizan cada dia a las 11:30 de la mañana y requieren una transposición a excel.</p>
-<p><img src="index_files/figure-html/datosxlsx-1.png" width="672" /></p>
+<p><img src="hospitalizados_files/figure-html/datosxlsx-1.png" width="672" /></p>
 </div>
 <div id="predicciones-y-errores" class="section level2">
 <h2>Predicciones y errores</h2>
-<div id="al-10-de-abril" class="section level3">
-<h3>6 al 10 de abril</h3>
-<p><img src="index_files/figure-html/pred_fall_6_10-1.png" width="672" /></p>
-<p>Error de las predicciones realizadas entre el 6 y 10 de abril. En verde se puede observar que la prediccion realizada el 6 de abril es mejor que las otras a medio plazo y esta realizando predicciones más acertadas que el resto. Se puede ver que pese haber un porcentaje alto a la semana de comenzar las predicciones, el error a partir de ese momento empieza a bajar a valores inferiores al 1% pese a ser a tan largo plazo.</p>
+<div id="predicciones-del-6-al-10-de-abril" class="section level3">
+<h3>Predicciones del 6 al 10 de abril</h3>
+<p><img src="hospitalizados_files/figure-html/pred_fall_6_10-1.png" width="672" /></p>
 <table class="table table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
 Error diario en las predicciones realizadas entre el 6 y 10 de abril
@@ -425,8 +424,8 @@ Fecha
 <td style="text-align:center;">
 2020-04-07
 </td>
-<td style="text-align:center;color: green !important;">
-0.02051
+<td style="text-align:center;">
+0.00869
 </td>
 <td style="text-align:center;">
 </td>
@@ -441,11 +440,11 @@ Fecha
 <td style="text-align:center;">
 2020-04-08
 </td>
-<td style="text-align:center;color: green !important;">
-0.08875
+<td style="text-align:center;">
+0.01588
 </td>
 <td style="text-align:center;">
-0.05078
+0.00022
 </td>
 <td style="text-align:center;">
 </td>
@@ -458,14 +457,14 @@ Fecha
 <td style="text-align:center;">
 2020-04-09
 </td>
-<td style="text-align:center;color: green !important;">
-0.09725
+<td style="text-align:center;">
+0.01626
 </td>
 <td style="text-align:center;">
-0.05321
+0.00415
 </td>
 <td style="text-align:center;">
-0.03383
+0.00481
 </td>
 <td style="text-align:center;">
 </td>
@@ -476,17 +475,17 @@ Fecha
 <td style="text-align:center;">
 2020-04-10
 </td>
-<td style="text-align:center;color: green !important;">
-0.09193
+<td style="text-align:center;">
+0.02138
 </td>
 <td style="text-align:center;">
-0.04262
+0.00576
 </td>
 <td style="text-align:center;">
-0.05559
+0.00683
 </td>
 <td style="text-align:center;">
-0.00254
+0.00127
 </td>
 <td style="text-align:center;">
 </td>
@@ -495,399 +494,208 @@ Fecha
 <td style="text-align:center;">
 2020-04-11
 </td>
-<td style="text-align:center;color: green !important;">
-0.09777
+<td style="text-align:center;">
+0.03065
 </td>
 <td style="text-align:center;">
-0.04294
+0.00271
 </td>
 <td style="text-align:center;">
-0.06674
+0.00397
 </td>
 <td style="text-align:center;">
-0.00107
+0.00641
 </td>
 <td style="text-align:center;">
-0.00560
+0.00435
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-12
 </td>
-<td style="text-align:center;color: green !important;">
-0.12585
+<td style="text-align:center;">
+0.02941
 </td>
 <td style="text-align:center;">
-0.06448
+0.00979
 </td>
 <td style="text-align:center;">
-0.05853
+0.01124
 </td>
 <td style="text-align:center;">
-0.01568
+0.00242
 </td>
 <td style="text-align:center;">
-0.01023
+0.00040
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-13
 </td>
-<td style="text-align:center;color: green !important;">
-0.09007
+<td style="text-align:center;">
+0.04889
 </td>
 <td style="text-align:center;">
-0.02590
+0.00300
 </td>
 <td style="text-align:center;">
-0.10277
+0.00140
 </td>
 <td style="text-align:center;">
-0.02476
+0.01809
 </td>
 <td style="text-align:center;">
-0.03078
+0.01441
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-14
 </td>
-<td style="text-align:center;color: green !important;">
-0.06474
+<td style="text-align:center;">
+0.06269
 </td>
 <td style="text-align:center;">
-0.00237
+0.01173
 </td>
 <td style="text-align:center;">
-0.13681
+0.00980
 </td>
 <td style="text-align:center;">
-0.05504
+0.02938
 </td>
 <td style="text-align:center;">
-0.06162
+0.02508
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-15
 </td>
-<td style="text-align:center;color: green !important;">
-0.05218
+<td style="text-align:center;">
+0.07010
 </td>
 <td style="text-align:center;">
-0.01830
+0.01380
 </td>
 <td style="text-align:center;">
-0.15931
+0.01171
 </td>
 <td style="text-align:center;">
-0.07338
+0.03433
 </td>
 <td style="text-align:center;">
-0.08056
+0.02923
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-16
 </td>
-<td style="text-align:center;color: green !important;">
-0.06249
+<td style="text-align:center;">
+0.07961
 </td>
 <td style="text-align:center;">
-0.01270
+0.01822
 </td>
 <td style="text-align:center;">
-0.16283
+0.01600
 </td>
 <td style="text-align:center;">
-0.07126
+0.04145
 </td>
 <td style="text-align:center;">
-0.07916
+0.03579
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-17
 </td>
-<td style="text-align:center;color: green !important;">
-0.05162
+<td style="text-align:center;">
+0.08985
 </td>
 <td style="text-align:center;">
-0.02660
+0.02359
 </td>
 <td style="text-align:center;">
-0.18239
+0.02125
 </td>
 <td style="text-align:center;">
-0.08734
+0.04952
 </td>
 <td style="text-align:center;">
-0.09578
+0.04334
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-18
 </td>
-<td style="text-align:center;color: green !important;">
-0.04143
+<td style="text-align:center;">
+0.10431
 </td>
 <td style="text-align:center;">
-0.03961
+0.03400
 </td>
 <td style="text-align:center;">
-0.20060
+0.03155
 </td>
 <td style="text-align:center;">
-0.10241
+0.06232
 </td>
 <td style="text-align:center;">
-0.11136
+0.05553
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-19
 </td>
-<td style="text-align:center;color: green !important;">
-0.03189
+<td style="text-align:center;">
+0.11155
 </td>
 <td style="text-align:center;">
-0.05179
+0.03659
 </td>
 <td style="text-align:center;">
-0.21756
+0.03419
 </td>
 <td style="text-align:center;">
-0.11652
+0.06756
 </td>
 <td style="text-align:center;">
-0.12596
+0.06029
 </td>
 </tr>
 <tr>
 <td style="text-align:center;">
 2020-04-20
 </td>
-<td style="text-align:center;color: green !important;">
-0.01793
+<td style="text-align:center;">
+0.12390
 </td>
 <td style="text-align:center;">
-0.06779
+0.04502
 </td>
 <td style="text-align:center;">
-0.23714
+0.04251
 </td>
 <td style="text-align:center;">
-0.13402
+0.07831
 </td>
 <td style="text-align:center;">
-0.14387
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-21
-</td>
-<td style="text-align:center;color: green !important;">
-0.00975
-</td>
-<td style="text-align:center;">
-0.09609
-</td>
-<td style="text-align:center;">
-0.26616
-</td>
-<td style="text-align:center;">
-0.16272
-</td>
-<td style="text-align:center;">
-0.17281
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-22
-</td>
-<td style="text-align:center;color: green !important;">
-0.00743
-</td>
-<td style="text-align:center;">
-0.09678
-</td>
-<td style="text-align:center;">
-0.27228
-</td>
-<td style="text-align:center;">
-0.16569
-</td>
-<td style="text-align:center;">
-0.17628
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-23
-</td>
-<td style="text-align:center;color: green !important;">
-0.00796
-</td>
-<td style="text-align:center;">
-0.09994
-</td>
-<td style="text-align:center;">
-0.28010
-</td>
-<td style="text-align:center;">
-0.17085
-</td>
-<td style="text-align:center;">
-0.18190
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-24
-</td>
-<td style="text-align:center;color: green !important;">
-0.00843
-</td>
-<td style="text-align:center;">
-0.10292
-</td>
-<td style="text-align:center;">
-0.28746
-</td>
-<td style="text-align:center;">
-0.17573
-</td>
-<td style="text-align:center;">
-0.18722
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-25
-</td>
-<td style="text-align:center;color: green !important;">
-0.01145
-</td>
-<td style="text-align:center;">
-0.10807
-</td>
-<td style="text-align:center;">
-0.29626
-</td>
-<td style="text-align:center;">
-0.18251
-</td>
-<td style="text-align:center;">
-0.19439
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-26
-</td>
-<td style="text-align:center;color: green !important;">
-0.02197
-</td>
-<td style="text-align:center;">
-0.11984
-</td>
-<td style="text-align:center;">
-0.30997
-</td>
-<td style="text-align:center;">
-0.19524
-</td>
-<td style="text-align:center;">
-0.20740
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-27
-</td>
-<td style="text-align:center;color: green !important;">
-</td>
-<td style="text-align:center;">
-0.13177
-</td>
-<td style="text-align:center;">
-0.32345
-</td>
-<td style="text-align:center;">
-0.20799
-</td>
-<td style="text-align:center;">
-0.22040
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-28
-</td>
-<td style="text-align:center;color: green !important;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0.33619
-</td>
-<td style="text-align:center;">
-0.22010
-</td>
-<td style="text-align:center;">
-0.23274
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-29
-</td>
-<td style="text-align:center;color: green !important;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0.22513
-</td>
-<td style="text-align:center;">
-0.23809
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-30
-</td>
-<td style="text-align:center;color: green !important;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0.24321
+0.07064
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="al-15-de-abril" class="section level3">
-<h3>11 al 15 de abril</h3>
-<p>Gráfico de las predicciones del 11 al 15 de abril</p>
-<p><img src="index_files/figure-html/pred_fall_11_15-1.png" width="672" /></p>
+<div id="predicciones-del-11-al-15-de-abril" class="section level3">
+<h3>Predicciones del 11 al 15 de abril</h3>
+<p><img src="hospitalizados_files/figure-html/pred_fall_11_15-1.png" width="672" /></p>
 <table class="table table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
 Error diario en las predicciones realizadas entre el 11 y 15 de abril
@@ -920,7 +728,7 @@ Fecha
 2020-04-12
 </td>
 <td style="text-align:center;">
-0.02005
+0.00774
 </td>
 <td style="text-align:center;">
 </td>
@@ -936,10 +744,10 @@ Fecha
 2020-04-13
 </td>
 <td style="text-align:center;">
-0.02019
+0.00518
 </td>
 <td style="text-align:center;">
-0.05352
+0.01363
 </td>
 <td style="text-align:center;">
 </td>
@@ -953,13 +761,13 @@ Fecha
 2020-04-14
 </td>
 <td style="text-align:center;">
-0.05031
+0.01328
 </td>
 <td style="text-align:center;">
-0.08715
+0.02489
 </td>
 <td style="text-align:center;">
-0.00420
+0.00569
 </td>
 <td style="text-align:center;">
 </td>
@@ -971,16 +779,16 @@ Fecha
 2020-04-15
 </td>
 <td style="text-align:center;">
-0.06850
+0.01474
 </td>
 <td style="text-align:center;">
-0.10888
+0.03197
 </td>
 <td style="text-align:center;">
-0.00677
+0.01132
 </td>
 <td style="text-align:center;">
-0.01407
+0.00214
 </td>
 <td style="text-align:center;">
 </td>
@@ -990,19 +798,19 @@ Fecha
 2020-04-16
 </td>
 <td style="text-align:center;">
-0.06617
+0.01878
 </td>
 <td style="text-align:center;">
-0.11070
+0.04075
 </td>
 <td style="text-align:center;">
-0.00361
+0.02082
 </td>
 <td style="text-align:center;">
-0.00488
+0.00500
 </td>
 <td style="text-align:center;">
-0.01983
+0.00173
 </td>
 </tr>
 <tr>
@@ -1010,19 +818,19 @@ Fecha
 2020-04-17
 </td>
 <td style="text-align:center;">
-0.08219
+0.02395
 </td>
 <td style="text-align:center;">
-0.12975
+0.05088
 </td>
 <td style="text-align:center;">
-0.00620
+0.03122
 </td>
 <td style="text-align:center;">
-0.01568
+0.00665
 </td>
 <td style="text-align:center;">
-0.01210
+0.00246
 </td>
 </tr>
 <tr>
@@ -1030,19 +838,19 @@ Fecha
 2020-04-18
 </td>
 <td style="text-align:center;">
-0.09723
+0.03400
 </td>
 <td style="text-align:center;">
-0.14757
+0.06364
 </td>
 <td style="text-align:center;">
-0.01555
+0.04636
 </td>
 <td style="text-align:center;">
-0.02595
+0.00282
 </td>
 <td style="text-align:center;">
-0.00467
+0.00261
 </td>
 </tr>
 <tr>
@@ -1050,19 +858,19 @@ Fecha
 2020-04-19
 </td>
 <td style="text-align:center;">
-0.11135
+0.03659
 </td>
 <td style="text-align:center;">
-0.16424
+0.07203
 </td>
 <td style="text-align:center;">
-0.02443
+0.05387
 </td>
 <td style="text-align:center;">
-0.03571
+0.00668
 </td>
 <td style="text-align:center;">
-0.00245
+0.00018
 </td>
 </tr>
 <tr>
@@ -1070,301 +878,27 @@ Fecha
 2020-04-20
 </td>
 <td style="text-align:center;">
-0.12890
+0.04485
 </td>
 <td style="text-align:center;">
-0.18387
+0.08432
 </td>
 <td style="text-align:center;">
-0.03763
+0.06688
 </td>
 <td style="text-align:center;">
-0.04966
+0.00422
 </td>
 <td style="text-align:center;">
-0.01414
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-21
-</td>
-<td style="text-align:center;">
-0.15776
-</td>
-<td style="text-align:center;">
-0.21378
-</td>
-<td style="text-align:center;">
-0.06392
-</td>
-<td style="text-align:center;">
-0.07647
-</td>
-<td style="text-align:center;">
-0.03942
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-22
-</td>
-<td style="text-align:center;">
-0.16075
-</td>
-<td style="text-align:center;">
-0.21929
-</td>
-<td style="text-align:center;">
-0.06194
-</td>
-<td style="text-align:center;">
-0.07534
-</td>
-<td style="text-align:center;">
-0.03584
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-23
-</td>
-<td style="text-align:center;">
-0.16596
-</td>
-<td style="text-align:center;">
-0.22673
-</td>
-<td style="text-align:center;">
-0.06275
-</td>
-<td style="text-align:center;">
-0.07692
-</td>
-<td style="text-align:center;">
-0.03522
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-24
-</td>
-<td style="text-align:center;">
-0.17091
-</td>
-<td style="text-align:center;">
-0.23376
-</td>
-<td style="text-align:center;">
-0.06357
-</td>
-<td style="text-align:center;">
-0.07848
-</td>
-<td style="text-align:center;">
-0.03470
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-25
-</td>
-<td style="text-align:center;">
-0.17779
-</td>
-<td style="text-align:center;">
-0.24243
-</td>
-<td style="text-align:center;">
-0.06687
-</td>
-<td style="text-align:center;">
-0.08244
-</td>
-<td style="text-align:center;">
-0.03682
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-26
-</td>
-<td style="text-align:center;">
-0.19066
-</td>
-<td style="text-align:center;">
-0.25646
-</td>
-<td style="text-align:center;">
-0.07730
-</td>
-<td style="text-align:center;">
-0.09338
-</td>
-<td style="text-align:center;">
-0.04640
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-27
-</td>
-<td style="text-align:center;">
-0.20356
-</td>
-<td style="text-align:center;">
-0.27034
-</td>
-<td style="text-align:center;">
-0.08810
-</td>
-<td style="text-align:center;">
-0.10463
-</td>
-<td style="text-align:center;">
-0.05645
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-28
-</td>
-<td style="text-align:center;">
-0.21583
-</td>
-<td style="text-align:center;">
-0.28349
-</td>
-<td style="text-align:center;">
-0.09849
-</td>
-<td style="text-align:center;">
-0.11543
-</td>
-<td style="text-align:center;">
-0.06618
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-29
-</td>
-<td style="text-align:center;">
-0.22098
-</td>
-<td style="text-align:center;">
-0.29000
-</td>
-<td style="text-align:center;">
-0.10096
-</td>
-<td style="text-align:center;">
-0.11844
-</td>
-<td style="text-align:center;">
-0.06777
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-30
-</td>
-<td style="text-align:center;">
-0.22592
-</td>
-<td style="text-align:center;">
-0.29621
-</td>
-<td style="text-align:center;">
-0.10340
-</td>
-<td style="text-align:center;">
-0.12138
-</td>
-<td style="text-align:center;">
-0.06941
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-01
-</td>
-<td style="text-align:center;">
-0.22251
-</td>
-<td style="text-align:center;">
-0.29475
-</td>
-<td style="text-align:center;">
-0.09635
-</td>
-<td style="text-align:center;">
-0.11501
-</td>
-<td style="text-align:center;">
-0.06124
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-02
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0.30173
-</td>
-<td style="text-align:center;">
-0.10038
-</td>
-<td style="text-align:center;">
-0.11946
-</td>
-<td style="text-align:center;">
-0.06464
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-03
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0.11216
-</td>
-<td style="text-align:center;">
-0.13147
-</td>
-<td style="text-align:center;">
-0.07615
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-04
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0.13981
-</td>
-<td style="text-align:center;">
-0.08386
+0.00382
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="al-20-de-abril" class="section level3">
-<h3>16 al 20 de abril</h3>
-<p><img src="index_files/figure-html/fall_pred_16_20-1.png" width="672" /></p>
+<div id="predicciones-del-16-al-20-de-abril" class="section level3">
+<h3>Predicciones del 16 al 20 de abril</h3>
+<p><img src="hospitalizados_files/figure-html/fall_pred_16_20-1.png" width="672" /></p>
 <table class="table table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
 Error diario en las predicciones realizadas entre el 16 y 20 de abril
@@ -1397,7 +931,7 @@ Fecha
 2020-04-17
 </td>
 <td style="text-align:center;">
-0.02184
+0.00019
 </td>
 <td style="text-align:center;">
 </td>
@@ -1413,10 +947,10 @@ Fecha
 2020-04-18
 </td>
 <td style="text-align:center;">
-0.03361
+0.00614
 </td>
 <td style="text-align:center;">
-0.00402
+0.00540
 </td>
 <td style="text-align:center;">
 </td>
@@ -1430,13 +964,13 @@ Fecha
 2020-04-19
 </td>
 <td style="text-align:center;">
-0.04478
+0.00459
 </td>
 <td style="text-align:center;">
-0.00248
+0.00386
 </td>
 <td style="text-align:center;">
-0.00944
+0.00519
 </td>
 <td style="text-align:center;">
 </td>
@@ -1448,16 +982,16 @@ Fecha
 2020-04-20
 </td>
 <td style="text-align:center;">
-0.06000
+0.00724
 </td>
 <td style="text-align:center;">
-0.01360
+0.00833
 </td>
 <td style="text-align:center;">
-0.02148
+0.02016
 </td>
 <td style="text-align:center;">
-0.00531
+0.01163
 </td>
 <td style="text-align:center;">
 </td>
@@ -1467,19 +1001,19 @@ Fecha
 2020-04-21
 </td>
 <td style="text-align:center;">
-0.08783
+0.00286
 </td>
 <td style="text-align:center;">
-0.03839
+0.00411
 </td>
 <td style="text-align:center;">
-0.04699
+0.01979
 </td>
 <td style="text-align:center;">
-0.02915
+0.00880
 </td>
 <td style="text-align:center;">
-0.02020
+0.00108
 </td>
 </tr>
 <tr>
@@ -1487,19 +1021,19 @@ Fecha
 2020-04-22
 </td>
 <td style="text-align:center;">
-0.08796
+0.00018
 </td>
 <td style="text-align:center;">
-0.03434
+0.00159
 </td>
 <td style="text-align:center;">
-0.04386
+0.02087
 </td>
 <td style="text-align:center;">
-0.02398
+0.00638
 </td>
 <td style="text-align:center;">
-0.01382
+0.00196
 </td>
 </tr>
 <tr>
@@ -1507,19 +1041,19 @@ Fecha
 2020-04-23
 </td>
 <td style="text-align:center;">
-0.09072
+0.00574
 </td>
 <td style="text-align:center;">
-0.03329
+0.00418
 </td>
 <td style="text-align:center;">
-0.04367
+0.01872
 </td>
 <td style="text-align:center;">
-0.02190
+0.00070
 </td>
 <td style="text-align:center;">
-0.01062
+0.00478
 </td>
 </tr>
 <tr>
@@ -1527,19 +1061,19 @@ Fecha
 2020-04-24
 </td>
 <td style="text-align:center;">
-0.09340
+0.01288
 </td>
 <td style="text-align:center;">
-0.03238
+0.01118
 </td>
 <td style="text-align:center;">
-0.04358
+0.01519
 </td>
 <td style="text-align:center;">
-0.02004
+0.00623
 </td>
 <td style="text-align:center;">
-0.00770
+0.00439
 </td>
 </tr>
 <tr>
@@ -1547,19 +1081,19 @@ Fecha
 2020-04-25
 </td>
 <td style="text-align:center;">
-0.09839
+0.02171
 </td>
 <td style="text-align:center;">
-0.03416
+0.01988
 </td>
 <td style="text-align:center;">
-0.04611
+0.00963
 </td>
 <td style="text-align:center;">
-0.02095
+0.01486
 </td>
 <td style="text-align:center;">
-0.00764
+0.00244
 </td>
 </tr>
 <tr>
@@ -1567,19 +1101,19 @@ Fecha
 2020-04-26
 </td>
 <td style="text-align:center;">
-0.11017
+0.02949
 </td>
 <td style="text-align:center;">
-0.04345
+0.02754
 </td>
 <td style="text-align:center;">
-0.05601
+0.00521
 </td>
 <td style="text-align:center;">
-0.02955
+0.02245
 </td>
 <td style="text-align:center;">
-0.01545
+0.00121
 </td>
 </tr>
 <tr>
@@ -1587,19 +1121,19 @@ Fecha
 2020-04-27
 </td>
 <td style="text-align:center;">
-0.12218
+0.03460
 </td>
 <td style="text-align:center;">
-0.05325
+0.03252
 </td>
 <td style="text-align:center;">
-0.06637
+0.00344
 </td>
 <td style="text-align:center;">
-0.03873
+0.02736
 </td>
 <td style="text-align:center;">
-0.02392
+0.00413
 </td>
 </tr>
 <tr>
@@ -1607,150 +1141,30 @@ Fecha
 2020-04-28
 </td>
 <td style="text-align:center;">
-0.13370
+0.03910
 </td>
 <td style="text-align:center;">
-0.06275
+0.03690
 </td>
 <td style="text-align:center;">
-0.07639
+0.00205
 </td>
 <td style="text-align:center;">
-0.04768
+0.03166
 </td>
 <td style="text-align:center;">
-0.03222
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-29
-</td>
-<td style="text-align:center;">
-0.13752
-</td>
-<td style="text-align:center;">
-0.06413
-</td>
-<td style="text-align:center;">
-0.07837
-</td>
-<td style="text-align:center;">
-0.04843
-</td>
-<td style="text-align:center;">
-0.03223
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-30
-</td>
-<td style="text-align:center;">
-0.14124
-</td>
-<td style="text-align:center;">
-0.06556
-</td>
-<td style="text-align:center;">
-0.08037
-</td>
-<td style="text-align:center;">
-0.04928
-</td>
-<td style="text-align:center;">
-0.03239
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-01
-</td>
-<td style="text-align:center;">
-0.13582
-</td>
-<td style="text-align:center;">
-0.05717
-</td>
-<td style="text-align:center;">
-0.07267
-</td>
-<td style="text-align:center;">
-0.04017
-</td>
-<td style="text-align:center;">
-0.02245
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-02
-</td>
-<td style="text-align:center;">
-0.14094
-</td>
-<td style="text-align:center;">
-0.06041
-</td>
-<td style="text-align:center;">
-0.07640
-</td>
-<td style="text-align:center;">
-0.04294
-</td>
-<td style="text-align:center;">
-0.02465
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-03
-</td>
-<td style="text-align:center;">
-0.15338
-</td>
-<td style="text-align:center;">
-0.07183
-</td>
-<td style="text-align:center;">
-0.08813
-</td>
-<td style="text-align:center;">
-0.05407
-</td>
-<td style="text-align:center;">
-0.03542
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-04
-</td>
-<td style="text-align:center;">
-0.16219
-</td>
-<td style="text-align:center;">
-0.07943
-</td>
-<td style="text-align:center;">
-0.09608
-</td>
-<td style="text-align:center;">
-0.06137
-</td>
-<td style="text-align:center;">
-0.04231
+0.00444
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="al-25-de-abril" class="section level3">
-<h3>21 al 25 de abril</h3>
-<p><img src="index_files/figure-html/fall_pred_21_25-1.png" width="672" /></p>
+<div id="predicciones-del-21-al-24-de-abril" class="section level3">
+<h3>Predicciones del 21 al 24 de abril</h3>
+<p><img src="hospitalizados_files/figure-html/fall_pred_21_24-1.png" width="672" /></p>
 <table class="table table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
-Error diario en las predicciones realizadas entre el 21 y 25 de abril
+Error diario en las predicciones realizadas entre el 21 y el 24 de abril
 </caption>
 <thead>
 <tr>
@@ -1769,22 +1183,32 @@ Fecha
 <th style="text-align:center;">
 24 Abril
 </th>
-<th style="text-align:center;">
-25 Abril
-</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center;">
+2020-04-21
+</td>
+<td style="text-align:center;">
+0.00036
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
 2020-04-22
 </td>
 <td style="text-align:center;">
-0.02164
+0.00283
 </td>
 <td style="text-align:center;">
-</td>
-<td style="text-align:center;">
+0.00247
 </td>
 <td style="text-align:center;">
 </td>
@@ -1796,14 +1220,13 @@ Fecha
 2020-04-23
 </td>
 <td style="text-align:center;">
-0.02980
+0.00158
 </td>
 <td style="text-align:center;">
-0.00771
+0.00333
 </td>
 <td style="text-align:center;">
-</td>
-<td style="text-align:center;">
+0.00419
 </td>
 <td style="text-align:center;">
 </td>
@@ -1813,17 +1236,16 @@ Fecha
 2020-04-24
 </td>
 <td style="text-align:center;">
-0.03746
+0.00087
 </td>
 <td style="text-align:center;">
-0.00534
+0.00417
 </td>
 <td style="text-align:center;">
-0.00806
+0.00536
 </td>
 <td style="text-align:center;">
-</td>
-<td style="text-align:center;">
+0.00017
 </td>
 </tr>
 <tr>
@@ -1831,18 +1253,16 @@ Fecha
 2020-04-25
 </td>
 <td style="text-align:center;">
-0.04190
+0.00518
 </td>
 <td style="text-align:center;">
-0.00583
+0.00517
 </td>
 <td style="text-align:center;">
-0.00934
+0.00719
 </td>
 <td style="text-align:center;">
-0.00462
-</td>
-<td style="text-align:center;">
+0.00034
 </td>
 </tr>
 <tr>
@@ -1850,19 +1270,16 @@ Fecha
 2020-04-26
 </td>
 <td style="text-align:center;">
-0.03783
+0.00873
 </td>
 <td style="text-align:center;">
-0.01416
+0.00581
 </td>
 <td style="text-align:center;">
-0.00254
+0.00865
 </td>
 <td style="text-align:center;">
-0.01319
-</td>
-<td style="text-align:center;">
-0.00527
+0.00017
 </td>
 </tr>
 <tr>
@@ -1870,19 +1287,16 @@ Fecha
 2020-04-27
 </td>
 <td style="text-align:center;">
-0.03278
+0.00968
 </td>
 <td style="text-align:center;">
-0.02314
+0.00661
 </td>
 <td style="text-align:center;">
-0.00503
+0.01025
 </td>
 <td style="text-align:center;">
-0.02240
-</td>
-<td style="text-align:center;">
-0.01353
+0.00000
 </td>
 </tr>
 <tr>
@@ -1890,388 +1304,16 @@ Fecha
 2020-04-28
 </td>
 <td style="text-align:center;">
-0.02765
+0.00995
 </td>
 <td style="text-align:center;">
-0.03191
+0.00740
 </td>
 <td style="text-align:center;">
-0.01251
+0.01199
 </td>
 <td style="text-align:center;">
-0.03140
-</td>
-<td style="text-align:center;">
-0.02165
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-29
-</td>
-<td style="text-align:center;">
-0.03109
-</td>
-<td style="text-align:center;">
-0.03237
-</td>
-<td style="text-align:center;">
-0.01161
-</td>
-<td style="text-align:center;">
-0.03207
-</td>
-<td style="text-align:center;">
-0.02143
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-30
-</td>
-<td style="text-align:center;">
-0.03419
-</td>
-<td style="text-align:center;">
-0.03297
-</td>
-<td style="text-align:center;">
-0.01092
-</td>
-<td style="text-align:center;">
-0.03288
-</td>
-<td style="text-align:center;">
-0.02140
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-01
-</td>
-<td style="text-align:center;">
-0.04795
-</td>
-<td style="text-align:center;">
-0.02345
-</td>
-<td style="text-align:center;">
-0.00005
-</td>
-<td style="text-align:center;">
-0.02357
-</td>
-<td style="text-align:center;">
-0.01118
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-02
-</td>
-<td style="text-align:center;">
-0.04856
-</td>
-<td style="text-align:center;">
-0.02605
-</td>
-<td style="text-align:center;">
-0.00144
-</td>
-<td style="text-align:center;">
-0.02637
-</td>
-<td style="text-align:center;">
-0.01325
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-03
-</td>
-<td style="text-align:center;">
-0.03976
-</td>
-<td style="text-align:center;">
-0.03718
-</td>
-<td style="text-align:center;">
-0.01177
-</td>
-<td style="text-align:center;">
-0.03769
-</td>
-<td style="text-align:center;">
-0.02402
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-04
-</td>
-<td style="text-align:center;">
-0.03494
-</td>
-<td style="text-align:center;">
-0.04443
-</td>
-<td style="text-align:center;">
-0.01819
-</td>
-<td style="text-align:center;">
-0.04513
-</td>
-<td style="text-align:center;">
-0.03090
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="a-30-de-abril" class="section level3">
-<h3>26 a 30 de abril</h3>
-<p><img src="index_files/figure-html/fall_pred_26_30-1.png" width="672" /></p>
-<table class="table table-hover" style="margin-left: auto; margin-right: auto;">
-<caption>
-Error diario en las predicciones realizadas entre el 26 y 30 de abril
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Fecha
-</th>
-<th style="text-align:center;">
-26 Abril
-</th>
-<th style="text-align:center;">
-27 Abril
-</th>
-<th style="text-align:center;">
-28 Abril
-</th>
-<th style="text-align:center;">
-29 Abril
-</th>
-<th style="text-align:center;">
-30 Abril
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-2020-04-27
-</td>
-<td style="text-align:center;">
-0.00448
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-28
-</td>
-<td style="text-align:center;">
-0.01151
-</td>
-<td style="text-align:center;">
-0.01178
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-29
-</td>
-<td style="text-align:center;">
-0.01018
-</td>
-<td style="text-align:center;">
-0.00781
-</td>
-<td style="text-align:center;">
-0.01659
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-04-30
-</td>
-<td style="text-align:center;">
-0.00910
-</td>
-<td style="text-align:center;">
-0.00423
-</td>
-<td style="text-align:center;">
-0.01423
-</td>
-<td style="text-align:center;">
-0.01276
-</td>
-<td style="text-align:center;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-01
-</td>
-<td style="text-align:center;">
-0.00225
-</td>
-<td style="text-align:center;">
-0.00957
-</td>
-<td style="text-align:center;">
-0.00171
-</td>
-<td style="text-align:center;">
-0.00004
-</td>
-<td style="text-align:center;">
-0.02150
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-02
-</td>
-<td style="text-align:center;">
-0.00109
-</td>
-<td style="text-align:center;">
-0.01066
-</td>
-<td style="text-align:center;">
-0.00171
-</td>
-<td style="text-align:center;">
-0.00013
-</td>
-<td style="text-align:center;">
-0.02417
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-03
-</td>
-<td style="text-align:center;">
-0.00896
-</td>
-<td style="text-align:center;">
-0.00264
-</td>
-<td style="text-align:center;">
-0.01065
-</td>
-<td style="text-align:center;">
-0.00867
-</td>
-<td style="text-align:center;">
-0.03541
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-04
-</td>
-<td style="text-align:center;">
-0.01512
-</td>
-<td style="text-align:center;">
-0.00161
-</td>
-<td style="text-align:center;">
-0.01579
-</td>
-<td style="text-align:center;">
-0.01368
-</td>
-<td style="text-align:center;">
-0.04278
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="al-3-de-mayo" class="section level3">
-<h3>1 al 3 de mayo</h3>
-<p><img src="index_files/figure-html/fall_pred_01_03-1.png" width="672" /></p>
-<table class="table table-hover" style="margin-left: auto; margin-right: auto;">
-<caption>
-Error diario en las predicciones realizadas entre el 1 y el 3 de mayo
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Fecha
-</th>
-<th style="text-align:center;">
-1 Mayo
-</th>
-<th style="text-align:center;">
-2 Mayo
-</th>
-<th style="text-align:center;">
-3 Mayo
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-2020-05-02
-</td>
-<td style="text-align:center;">
-0.00766
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-03
-</td>
-<td style="text-align:center;">
-0.01692
-</td>
-<td style="text-align:center;">
-0.00787
-</td>
-<td style="text-align:center;">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-2020-05-04
-</td>
-<td style="text-align:center;">
-0.02239
-</td>
-<td style="text-align:center;">
-0.01220
-</td>
-<td style="text-align:center;">
-0.00819
+0.00034
 </td>
 </tr>
 </tbody>
@@ -2280,7 +1322,7 @@ Fecha
 </div>
 <div id="conclusiones-de-los-datos" class="section level2">
 <h2>Conclusiones de los datos</h2>
-<p>Estos datos tratan fallecimientos acumulados, por lo que conforme avanza el tiempo y van disminuyendo para tender a una linea horizontal, que supondrá el fin de los fallecidos.</p>
+<p>Estos datos tratan hospitalizados en las Unidades de Cuidados Intensivos acumulados, no se registran las bajas, por lo que conforme avanzan las semanas y va disminuyendo el efecto de la enfermedad estos datos tenderán a una linea horizontal, que supondrá el fin de los fallecidos.</p>
 <p>En los gráficos separados por tramos de dias se puede observar que la curva se va aplanando y que las predicciones van convergiendo hacia esa horizontalidad mencionada.</p>
 </div>
 
